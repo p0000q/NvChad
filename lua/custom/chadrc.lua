@@ -43,5 +43,22 @@ map("n", "<leader>fr", ":Telescope lsp_references")
 
 vim.opt.shiftwidth = 4
 
+-- setup msys2 on windows
+function setup_msys2()
+    shell_executable = os.getenv('SHELL')
+    -- print(shell_executable)
+    if string.find(shell_executable, "msys64") then
+        -- print(shell_executable .. "uuuuuuuuuu")
+        vim.o.shellcmdflag = '-c'
+        vim.o.shellxquote = '('
+        vim.o.shellslash = nil
+    end
+
+    -- let &shellcmdflag = '-c'
+    -- set shellxquote=(
+    -- set shellslashnd
+end
+setup_msys2()
+
 return M
 
