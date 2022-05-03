@@ -1,4 +1,7 @@
 -- Just an example, supposed to be placed in /lua/custom/
+--
+
+local userPlugins = require "custom.plugins"
 
 local M = {}
 
@@ -7,6 +10,10 @@ local M = {}
 
 M.ui = {
    theme = "gruvchad",
+}
+
+M.plugins = {
+  user = userPlugins,
 }
 
 return M
