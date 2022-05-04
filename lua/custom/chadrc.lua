@@ -40,6 +40,10 @@ map("n", "<leader>wo", ":only <CR>")
 map("n", "<leader>wq", ":quit <CR>")
 map("n", "<leader>cc", ":Telescope <CR>")
 map("n", "<leader>fr", ":Telescope lsp_references")
+map("n", "<leader>fs", ":Telescope grep_string")
+
+-- for debug config
+map("n", "<leader>gc", function() vim.fn.chdir(vim.fn.stdpath("config"))end)
 
 vim.opt.shiftwidth = 4
 
@@ -47,7 +51,7 @@ vim.opt.shiftwidth = 4
 function setup_msys2()
     shell_executable = os.getenv('SHELL')
     -- print(shell_executable)
-    if string.find(shell_executable, "msys64") then
+    if shell_executable and string.find(shell_executable, "msys64") then
         -- print(shell_executable .. "uuuuuuuuuu")
         vim.o.shellcmdflag = '-c'
         vim.o.shellxquote = '('
